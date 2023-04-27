@@ -2,7 +2,7 @@ package g214.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
+import g214.tests.pages.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -12,17 +12,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class g214ValidationTests {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.holdBrowserOpen = true;
-    }
+
 
     @Test
         //телефон на главной отображается и является кликабельным
     void phoneNumberIsAvaliableOnMain() {
 
-        open("https://214g.ru");
-        //
+        RegistrationPage.openPage();
+
         $$("div.Header_Main_Content_Contacts").findBy(Condition.href("tel:+78129202297"));
     }
 
