@@ -5,13 +5,13 @@ import com.github.javafaker.Faker;
 public class RandomUtils {
 
 
-    public static String randomHeaderName(){
+    public static String randomHeaderName() {
 
         return new Faker().name().firstName();
 
     }
 
-    public static String randomPhone(){
+    public static String randomPhone() {
         return new Faker().phoneNumber().subscriberNumber(10);
     }
 
@@ -20,10 +20,9 @@ public class RandomUtils {
         return new Faker().internet().emailAddress();
     }
 
-    public static String randomPrice(){
+    public static String randomPrice() {
         return new Faker().phoneNumber().subscriberNumber(3);
     }
-
 
 
 }
