@@ -9,6 +9,5 @@ public class TestBase extends TestData {
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
-        //Configuration.baseUrl = "https://214g.ru";
     }
 }

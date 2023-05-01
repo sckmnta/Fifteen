@@ -21,7 +21,7 @@ public class RandomUtils {
     }
 
     public static String randomPrice(){
-        return new Faker().numerify().length(3);
+        return new Faker().phoneNumber().subscriberNumber(3);
     }
 
 
