@@ -35,7 +35,7 @@ public class RegistrationPage extends TestData {
             mortgagePhoneInput = $("#front_mortgage_help_form_phone"),
             mortgagePriceInput = $("#front_mortgage_help_form_price"),
             flatBaseButton = $("a.Button.Button_block.Button_gray"),
-    apartmentsModalForm = $("div.ApartmentCard_ContentBody_Row");
+            apartmentsModalForm = $("div.ApartmentCard_ContentBody_Row");
 
     public RegistrationPage openPage() {
         open("https://214g.ru");
@@ -48,123 +48,124 @@ public class RegistrationPage extends TestData {
         return this;
     }
 
-    public RegistrationPage openHeaderModalForm(){
+    public RegistrationPage openHeaderModalForm() {
         headerFinder.$(byText(headerButtonText)).click();
         return this;
     }
 
-    public RegistrationPage verifyHeaderModalFormIsVisible(){
+    public RegistrationPage verifyHeaderModalFormIsVisible() {
         headerModalForm.shouldBe(Condition.visible);
         return this;
     }
 
-    public RegistrationPage setHeaderName(String value){
+    public RegistrationPage setHeaderName(String value) {
         headerNameInput.setValue(value);
-                return this;
+        return this;
     }
 
-    public RegistrationPage setHeaderPhone(String value){
+    public RegistrationPage setHeaderPhone(String value) {
         headerPhoneInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage clickHeaderSubmitButton(){
+    public RegistrationPage clickHeaderSubmitButton() {
         submitButton.findBy(Condition.name(headerSubmitName)).click();
         return this;
     }
 
-    public RegistrationPage verifyResponseForm(){
+    public RegistrationPage verifyResponseForm() {
         modalResponse.shouldHave(Condition.text(notifyInfo));
         return this;
 
     }
 
-    public RegistrationPage setFooterMail(String value){
+    public RegistrationPage setFooterMail(String value) {
         footerMailInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage clickSubscribeButton(){
+    public RegistrationPage clickSubscribeButton() {
         subscribeButton.click();
         return this;
     }
 
-    public RegistrationPage verifySubscribtion(){
+    public RegistrationPage verifySubscribtion() {
         subscribeText.shouldHave(Condition.text(subText));
         return this;
 
     }
-    public RegistrationPage clickSelectionButton(){
+
+    public RegistrationPage clickSelectionButton() {
         submitButton.findBy(Condition.text(selectionButtonText)).click();
         return this;
     }
 
-    public RegistrationPage verifySelectionModalFormIsVisible(){
+    public RegistrationPage verifySelectionModalFormIsVisible() {
         selectionModalForm.shouldBe(Condition.visible);
         return this;
     }
 
-    public RegistrationPage setSelectionPrice(String value){
+    public RegistrationPage setSelectionPrice(String value) {
         selectionPriceInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setSelectionName(String value){
+    public RegistrationPage setSelectionName(String value) {
         selectionNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setSelectionPhone(String value){
+    public RegistrationPage setSelectionPhone(String value) {
         selectionPhoneInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage clickSelectionSubmitButton(){
+    public RegistrationPage clickSelectionSubmitButton() {
         submitButton.findBy(Condition.name(selectionButtonName)).click();
         return this;
     }
 
-    public RegistrationPage clickMortgageButton(){
+    public RegistrationPage clickMortgageButton() {
         submitButton.findBy(Condition.text(mortgageButtonText)).click();
         return this;
     }
 
-    public RegistrationPage verifyMortgageModalFormIsVisible(){
+    public RegistrationPage verifyMortgageModalFormIsVisible() {
         mortgageModalForm.shouldBe(Condition.visible);
         return this;
     }
 
-    public RegistrationPage setMortgageName(String value){
+    public RegistrationPage setMortgageName(String value) {
         mortgageNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setMortgagePhone(String value){
+    public RegistrationPage setMortgagePhone(String value) {
         mortgagePhoneInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setMortgagePrice(String value){
+    public RegistrationPage setMortgagePrice(String value) {
         mortgagePriceInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage clickMortgageSubmitButton(){
+    public RegistrationPage clickMortgageSubmitButton() {
         submitButton.findBy(Condition.name(mortgageButtonName)).click();
         return this;
     }
 
-    public RegistrationPage clickFirstComplexPage(){
+    public RegistrationPage clickFirstComplexPage() {
         flatBaseFinder.first().$("a.Button.Button_block.Button_gray").click();
         return this;
     }
 
-    public RegistrationPage clickFirstApartmentsPage(){
+    public RegistrationPage clickFirstApartmentsPage() {
         apartmentsBaseFinder.first().click();
         return this;
     }
 
-    public RegistrationPage verifyApartmentsModalFormIsVisible(){
+    public RegistrationPage verifyApartmentsModalFormIsVisible() {
         apartmentsModalForm.shouldBe(Condition.visible);
         return this;
     }
