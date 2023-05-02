@@ -265,4 +265,4 @@ public class g214ValidationTests extends TestBase {
 
     }
 }
-//todo прикрутить owner, allure, registrationModal
+//todo прикрутить registrationModal
