@@ -1,15 +1,9 @@
 package g214.tests;
 
-
-import g214.tests.pages.RegistrationPage;
-
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-
 import static com.codeborne.selenide.Selenide.*;
-import static g214.tests.TestData.*;
 import static io.qameta.allure.Allure.step;
 
 
@@ -271,4 +265,4 @@ public class g214ValidationTests extends TestBase {
 
     }
 }
-//todo прикрутить owner, allure
+//todo прикрутить owner, allure, registrationModal

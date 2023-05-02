@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-//import tests.helpers.Attach;
+import g214.tests.helpers.Attach;
 import g214.tests.pages.RegistrationPage;
 
 import java.util.Map;
