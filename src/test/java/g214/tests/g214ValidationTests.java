@@ -3,139 +3,272 @@ package g214.tests;
 
 import g214.tests.pages.RegistrationPage;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 import static com.codeborne.selenide.Selenide.*;
 import static g214.tests.TestData.*;
+import static io.qameta.allure.Allure.step;
 
 
-public class g214ValidationTests {
+public class g214ValidationTests extends TestBase {
 
 
     @Test
-        //телефон на главной отображается и является кликабельным
+    @Feature("Header Phone Test")
+    @Story("Open main page and check if phone link s available on main page")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Header phone link should be clickable")
     void phoneNumberIsAvaliableOnMain() {
 
-        new RegistrationPage()
-                .openPage()
-                .findPhoneLink();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("check if phone link is available", () -> {
+            registrationPage.findPhoneLink();
+            ;
+        });
+
+
     }
 
 
     @Test
-        //позитивный тест окна заявок в хэдере
-
+    @Feature("Header Modal Form Test")
+    @Story("Open header modal form, fill header modal form, submit header modal form")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Positive Header Modal Form Test")
     void headerApplicationFormPositiveTest() {
-        new RegistrationPage()
-                .openPage()
-                .openHeaderModalForm()
-                .verifyHeaderModalFormIsVisible()
-                .setHeaderName(userName)
-                .setHeaderPhone(phoneNumber)
-                .clickHeaderSubmitButton()
-                .verifyResponseForm();
+
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Open header modal form", () -> {
+            registrationPage.openHeaderModalForm();
+        });
+        step("Verify header modal form is opened", () -> {
+            registrationPage.verifyHeaderModalFormIsVisible();
+        });
+        step("Fill header form and click submit button", () -> {
+            registrationPage.setHeaderName(userName)
+                    .setHeaderPhone(phoneNumber)
+                    .clickHeaderSubmitButton();
+        });
+        step("Verify response form is visible", () -> {
+            registrationPage.verifyResponseForm();
+        });
     }
 
     @Test
-        //негативный тест окна заявок в хедере
+    @Feature("Header Modal Form Test")
+    @Story("Open header modal form, not fill form, submit header modal form, verify")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Negative Header Modal Form Test")
     void headerApplicationFormNegativeTest() {
-        new RegistrationPage()
-                .openPage()
-                .openHeaderModalForm()
-                .verifyHeaderModalFormIsVisible()
-                .clickHeaderSubmitButton()
-                .verifyResponseForm();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Open header modal form", () -> {
+            registrationPage.openHeaderModalForm();
+        });
+        step("Verify header modal form is opened", () -> {
+            registrationPage.verifyHeaderModalFormIsVisible();
+        });
+        step("Click submit button with unfilled modal form", () -> {
+            registrationPage.clickHeaderSubmitButton();
+        });
+        step("Verify response form is visible", () -> {
+            registrationPage.verifyResponseForm();
+        });
+
     }
 
     @Test
-        //позитивный тест на подписку в футере
+    @Feature("Subscription Form Test")
+    @Story("Fill subscribe form in footer, click submit, verify")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Positive Subscription Test")
     void footerSubscriptionPositiveTest() {
-        new RegistrationPage()
-                .openPage()
-                .setFooterMail(userMail)
-                .clickSubscribeButton()
-                .verifySubscribtion();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Fill mail form and click subscribe button", () -> {
+            registrationPage.setFooterMail(userMail)
+                    .clickSubscribeButton();
+        });
+        step("Verify", () -> {
+            registrationPage.verifySubscribtion();
+        });
     }
 
     @Test
-        //негативный тест на подписку в футере
+    @Feature("Subscription Form Test")
+    @Story("Fill subscribe form in footer, click submit, verify")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Negative Subscription Test")
     void footerSubscriptionNegativeTest() {
-        new RegistrationPage()
-                .openPage()
-                .clickSubscribeButton()
-                .verifySubscribtion();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Fill mail form and click subscribe button", () -> {
+            registrationPage.clickSubscribeButton();
+        });
+        step("Verify", () -> {
+            registrationPage.verifySubscribtion();
+        });
     }
 
     @Test
-        //позитивный тест на форму персональной подборки
+    @Feature("Selection Modal Form Test")
+    @Story("Open selection modal form, fill selection modal form, submit selection modal form")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Positive Selection Modal Form Test")
     void selectionFormPositiveTest() {
-        new RegistrationPage()
-                .openPage()
-                .clickSelectionButton()
-                .verifySelectionModalFormIsVisible()
-                .setSelectionPrice(price)
-                .setSelectionName(userName)
-                .setSelectionPhone(phoneNumber)
-                .clickSelectionSubmitButton()
-                .verifyResponseForm();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Open selection modal form", () -> {
+            registrationPage.clickSelectionButton();
+        });
+        step("Verify selection modal form is opened", () -> {
+            registrationPage.verifySelectionModalFormIsVisible();
+        });
+        step("Fill selection form and click submit button", () -> {
+            registrationPage.setSelectionPrice(price)
+                    .setSelectionName(userName)
+                    .setSelectionPhone(phoneNumber)
+                    .clickSelectionSubmitButton();
+        });
+        step("Verify response form is visible", () -> {
+            registrationPage.verifyResponseForm();
+        });
+
 
     }
 
     @Test
-        //негативный тест на форму персональной поборки
+    @Feature("Selection Modal Form Test")
+    @Story("Open selection modal form, not fill form, submit selection modal form, verify")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Negative Selection Modal Form Test")
     void selectionFormNegativeTest() {
-        new RegistrationPage()
-                .openPage()
-                .clickSelectionButton()
-                .verifySelectionModalFormIsVisible()
-                .clickSelectionSubmitButton()
-                .verifyResponseForm();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Open selection modal form", () -> {
+            registrationPage.clickSelectionButton();
+        });
+        step("Verify selection modal form is opened", () -> {
+            registrationPage.verifySelectionModalFormIsVisible();
+        });
+        step("Click submit button with unfilled modal form", () -> {
+            registrationPage.clickSelectionSubmitButton();
+        });
+        step("Verify response form is visible", () -> {
+            registrationPage.verifyResponseForm();
+        });
     }
 
     @Test
-        //позитивный тест на форму ипотечной подборки
+    @Feature("Mortgage Modal Form Test")
+    @Story("Open mortgage modal form, fill mortgage modal form, submit mortgage modal form")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Positive Mortgage Modal Form Test")
     void mortgageFormPositiveTest() {
-        new RegistrationPage()
-                .openPage()
-                .clickMortgageButton()
-                .verifyMortgageModalFormIsVisible()
-                .setMortgageName(userName)
-                .setMortgagePhone(phoneNumber)
-                .setMortgagePrice(price)
-                .clickMortgageSubmitButton()
-                .verifyResponseForm();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Open mortgage modal form", () -> {
+            registrationPage.clickMortgageButton();
+        });
+        step("Verify mortgage modal form is opened", () -> {
+            registrationPage.verifyMortgageModalFormIsVisible();
+        });
+        step("Fill mortgage form and click submit button", () -> {
+            registrationPage.setMortgageName(userName)
+                    .setSelectionPhone(phoneNumber)
+                    .setMortgagePrice(price)
+                    .clickMortgageSubmitButton();
+        });
+        step("Verify response form is visible", () -> {
+            registrationPage.verifyResponseForm();
+        });
 
 
     }
 
     @Test
+    @Feature("Mortgage Modal Form Test")
+    @Story("Open mortgage modal form, not fill form, submit mortgage modal form, verify")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Negative Mortgage Modal Form Test")
         //негативный тест на форму ипотечной подборки
     void mortgageFormNegativeTest() {
-        new RegistrationPage()
-                .openPage()
-                .clickMortgageButton()
-                .verifyMortgageModalFormIsVisible()
-                .clickMortgageSubmitButton()
-                .verifyResponseForm();
-
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Open mortgage modal form", () -> {
+            registrationPage.clickMortgageButton();
+        });
+        step("Verify mortgage modal form is opened", () -> {
+            registrationPage.verifySelectionModalFormIsVisible();
+        });
+        step("Click submit button with unfilled modal form", () -> {
+            registrationPage.clickMortgageSubmitButton();
+        });
+        step("Verify response form is visible", () -> {
+            registrationPage.verifyResponseForm();
+        });
 
     }
 
     @Test
+    @Feature("DataBase is working")
+    @Story("Open first displayed complex on main page, in new tab check if first layout is available")
+    @Owner("sckmnta")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Main Page", url = "https://214g.ru")
+    @DisplayName("Layout Test")
         //блокер на работу бд
     void flatBaseIsAvaliable() {
-        new RegistrationPage()
-                .openPage()
-                .clickFirstComplexPage();
-        switchTo().window(1);
-        new RegistrationPage()
-                .clickFirstApartmentsPage()
-                .verifyApartmentsModalFormIsVisible();
+        step("Open main page", () -> {
+            registrationPage.openPage();
+        });
+        step("Click on first complex in listing", () -> {
+            registrationPage.clickFirstComplexPage();
+            ;
+        });
+        step("Change tab to newly opened", () -> {
+            switchTo().window(1);
+        });
+        step("Click on first apartment in listing", () -> {
+            registrationPage.clickFirstApartmentsPage();
+        });
+        step("Verify apartments response form is visible", () -> {
+            registrationPage.verifyApartmentsModalFormIsVisible();
+        });
 
 
     }
-
-
 }
-//todo прикрутить owner, allure, теги, обернуть тест, добавить аннотации
+//todo прикрутить owner, allure
