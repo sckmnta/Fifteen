@@ -22,11 +22,10 @@ public class TestBase extends TestData {
 
     @BeforeAll
     static void beforeall() {
-        Configuration.baseUrl = webDriverConfig.getBaseUrl();
-        Configuration.remote = webDriverConfig.getRemoteUrl();
-        Configuration.browserSize = webDriverConfig.getBrowserSize();
-        Configuration.browser = webDriverConfig.getBrowser();
-        Configuration.browserVersion = webDriverConfig.getBrowserVersion();
+        Configuration.browser =  System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browser_version", "100.0");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         Configuration.pageLoadStrategy = "eager";
 
@@ -42,12 +41,12 @@ public class TestBase extends TestData {
         }
 
         @BeforeEach
-        void addListener () {
+        void addListener() {
             SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         }
 
         @AfterEach
-        void addAttachments () {
+        void addAttachments() {
             Attach.screenshotAs("Last screenshot");
             Attach.pageSource();
             Attach.browserConsoleLogs();
