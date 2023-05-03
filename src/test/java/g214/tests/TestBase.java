@@ -22,10 +22,11 @@ public class TestBase extends TestData {
 
     @BeforeAll
     static void beforeall() {
-        Configuration.browser =  System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browser_version", "100.0");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.baseUrl = webDriverConfig.getBaseUrl();
+        Configuration.remote = webDriverConfig.getRemoteUrl();
+        Configuration.browserSize = webDriverConfig.getBrowserSize();
+        Configuration.browser = webDriverConfig.getBrowser();
+        Configuration.browserVersion = webDriverConfig.getBrowserVersion();
 
         Configuration.pageLoadStrategy = "eager";
 
