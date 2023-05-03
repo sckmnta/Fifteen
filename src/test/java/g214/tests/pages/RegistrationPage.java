@@ -58,6 +58,7 @@ public class RegistrationPage extends TestData {
         return this;
     }
 
+
     public RegistrationPage setHeaderName(String value) {
         headerNameInput.setValue(value);
         return this;
@@ -78,6 +79,11 @@ public class RegistrationPage extends TestData {
         return this;
 
     }
+    public RegistrationPage verifyResponseFormNegative() {
+        modalResponse.shouldNotBe(Condition.visible);
+        return this;
+
+    }
 
     public RegistrationPage setFooterMail(String value) {
         footerMailInput.setValue(value);
@@ -91,6 +97,12 @@ public class RegistrationPage extends TestData {
 
     public RegistrationPage verifySubscribtion() {
         subscribeText.shouldHave(Condition.text(subText));
+        return this;
+
+    }
+
+    public RegistrationPage verifySubscribtionNegative() {
+        subscribeText.shouldNot(Condition.appear);
         return this;
 
     }

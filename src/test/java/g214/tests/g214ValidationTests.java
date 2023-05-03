@@ -82,7 +82,7 @@ public class g214ValidationTests extends TestBase {
             registrationPage.clickHeaderSubmitButton();
         });
         step("Verify response form is visible", () -> {
-            registrationPage.verifyResponseForm();
+            registrationPage.verifyResponseFormNegative();
         });
 
     }
@@ -122,7 +122,7 @@ public class g214ValidationTests extends TestBase {
             registrationPage.clickSubscribeButton();
         });
         step("Verify", () -> {
-            registrationPage.verifySubscribtion();
+            registrationPage.verifySubscribtionNegative();
         });
     }
 
@@ -177,7 +177,7 @@ public class g214ValidationTests extends TestBase {
             registrationPage.clickSelectionSubmitButton();
         });
         step("Verify response form is visible", () -> {
-            registrationPage.verifyResponseForm();
+            registrationPage.verifyResponseFormNegative();
         });
     }
 
@@ -233,7 +233,7 @@ public class g214ValidationTests extends TestBase {
             registrationPage.clickMortgageSubmitButton();
         });
         step("Verify response form is visible", () -> {
-            registrationPage.verifyResponseForm();
+            registrationPage.verifyResponseFormNegative();
         });
 
     }
