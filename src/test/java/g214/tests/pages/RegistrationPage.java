@@ -38,7 +38,7 @@ public class RegistrationPage extends TestData {
             apartmentsModalForm = $("div.ApartmentCard_ContentBody_Row");
 
     public RegistrationPage openPage() {
-        open("https://214g.ru");
+        open("");
         return this;
 
     }

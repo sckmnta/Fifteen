@@ -200,7 +200,7 @@ public class g214ValidationTests extends TestBase {
         });
         step("Fill mortgage form and click submit button", () -> {
             registrationPage.setMortgageName(userName)
-                    .setSelectionPhone(phoneNumber)
+                    .setMortgagePhone(phoneNumber)
                     .setMortgagePrice(price)
                     .clickMortgageSubmitButton();
         });
