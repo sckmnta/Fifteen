@@ -267,4 +267,4 @@ public class g214ValidationTests extends TestBase {
 
     }
 }
-//todo прикрутить registrationModal, узнать почему не работает тг
+//todo прикрутить джиру
