@@ -67,7 +67,7 @@ public class g214ValidationTests extends TestBase {
     @Owner("sckmnta")
     @Severity(SeverityLevel.TRIVIAL)
     @Link(value = "Main Page", url = "https://214g.ru")
-    @DisplayName("Negative Header Modal Form Test")
+    @DisplayName("Negative Header Modal Form Test Without Filling Form")
     void headerApplicationFormNegativeTest() {
         step("Open main page", () -> {
             registrationPage.openPage();
@@ -113,7 +113,7 @@ public class g214ValidationTests extends TestBase {
     @Owner("sckmnta")
     @Severity(SeverityLevel.TRIVIAL)
     @Link(value = "Main Page", url = "https://214g.ru")
-    @DisplayName("Negative Subscription Test")
+    @DisplayName("Negative Subscription Test Without Filling Form")
     void footerSubscriptionNegativeTest() {
         step("Open main page", () -> {
             registrationPage.openPage();
@@ -162,7 +162,7 @@ public class g214ValidationTests extends TestBase {
     @Owner("sckmnta")
     @Severity(SeverityLevel.TRIVIAL)
     @Link(value = "Main Page", url = "https://214g.ru")
-    @DisplayName("Negative Selection Modal Form Test")
+    @DisplayName("Negative Selection Modal Form Test Without Filling Form")
     void selectionFormNegativeTest() {
         step("Open main page", () -> {
             registrationPage.openPage();
@@ -217,7 +217,7 @@ public class g214ValidationTests extends TestBase {
     @Owner("sckmnta")
     @Severity(SeverityLevel.TRIVIAL)
     @Link(value = "Main Page", url = "https://214g.ru")
-    @DisplayName("Negative Mortgage Modal Form Test")
+    @DisplayName("Negative Mortgage Modal Form Test WIthhout Filling Form")
         //негативный тест на форму ипотечной подборки
     void mortgageFormNegativeTest() {
         step("Open main page", () -> {
