@@ -34,8 +34,8 @@ public class RegistrationPage extends TestData {
             mortgageNameInput = $("#front_mortgage_help_form_name"),
             mortgagePhoneInput = $("#front_mortgage_help_form_phone"),
             mortgagePriceInput = $("#front_mortgage_help_form_price"),
-            //flatBaseButton = $("a.Button.Button_block.Button_gray"), does not work somehow
-            apartmentsModalForm = $("div.ApartmentCard_ContentBody_Row");
+    //flatBaseButton = $("a.Button.Button_block.Button_gray"), does not work somehow
+    apartmentsModalForm = $("div.ApartmentCard_ContentBody_Row");
 
     public RegistrationPage openPage() {
         open("");
@@ -79,6 +79,7 @@ public class RegistrationPage extends TestData {
         return this;
 
     }
+
     public RegistrationPage verifyResponseFormNegative() {
         modalResponse.shouldNotBe(Condition.visible);
         return this;

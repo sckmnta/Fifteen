@@ -42,6 +42,7 @@ public class TestBase extends TestData {
         }
 
     }
+
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
