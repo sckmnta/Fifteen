@@ -246,7 +246,6 @@ public class g214ValidationTests extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Main Page", url = "https://214g.ru")
     @DisplayName("Layout Test")
-        //блокер на работу бд
     void flatBaseIsAvaliable() {
         step("Open main page", () -> {
             registrationPage.openPage();
